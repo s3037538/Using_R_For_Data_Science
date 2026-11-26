@@ -1,0 +1,51 @@
+---
+title: "Using R for Data Science ICA Markdown"
+output: html_document
+---
+
+###  Loading the necessary information
+We first need to,
+
+  - Obtain data from data_all.csv
+  - Obtain sample names and their corresponding treatment groups from sample_annotation.csv
+  - Obtain gene numbers and their corresponding type and long name from gene_annotation.csv
+  - Obtain a list of gene to analyse from genelist_sxxxxxxx.txt
+
+executed from the code below.
+If required files to not exist in files folder, execution will stop with an error message.
+The data from the files will be imported into R as data frames.
+
+```{r load_info, include=TRUE}
+
+if(file.exists("files/data_all.csv")){
+  data_all <- read.csv(file="files/data_all.csv")
+}else{
+  stop("File data_all.csv not found in the files folder. Please check the working directory and prepare necessary folders and files.")
+}
+
+if(file.exists("files/sample_annotation.csv")){
+  sample_annotation <- read.csv(file="files/sample_annotation.csv")
+}else{
+    stop("File sample_annotation.csv not found in the files folder. Please check the working directory and prepare necessary folders and files.")
+}
+
+if(file.exists("files/gene_annotation.csv")){
+  gene_annotation <- read.csv(file="files/gene_annotation.csv")
+}else{
+    stop("File gene_annotation.csv not found in the files folder. Please check the working directory and prepare necessary folders and files.")
+}
+
+if(file.exists("files/genelist_s3037538.txt")){
+  genelist <- read.delim(file="files/genelist_s3037538.txt")
+}else{
+    stop("File genelist_s3037538.txt not found in the files folder. Please check the working directory and prepare necessary folders and files.")
+}
+```
+
+### Selecting and converting data
+
+Next, we need to select the data about the genes on the genelist file, and convert the data to log scaled data.
+``` {r select_and_convert_data, include = TRUE}
+selected_data <- 
+
+```
